@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     DataBaseHelper myDb;
-    EditText txt_nome, txt_sobrenome,txt_profissao;
+    EditText txt_nome, txt_sobrenome, txt_idade, txt_profissao;
     Button btnEnviar;
 
     @Override
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         txt_nome = (EditText) findViewById(R.id.editText3);
         txt_sobrenome = (EditText) findViewById(R.id.editText4);
         txt_profissao = (EditText) findViewById(R.id.editText5);
+        txt_idade = (EditText) findViewById(R.id.edit_idade);
 
         btnEnviar = (Button) findViewById(R.id.button);
 
@@ -38,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
         String nome = txt_nome.getText().toString();
         String sobrenome = txt_sobrenome.getText().toString();
         String profissao = txt_profissao.getText().toString();
+        String idade = txt_idade.getText().toString();
 
-        Boolean result = myDb.insertData(nome, sobrenome, profissao);
+        Boolean result = myDb.insertData(nome, sobrenome, idade, profissao);
 
         if(result == true){
             Toast.makeText(this,"Dados inseridos com sucesso", Toast.LENGTH_SHORT).show();
